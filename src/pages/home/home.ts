@@ -37,12 +37,10 @@ export class HomePage {
   }
 
   convertDMStoDecimal(coords) {
-    console.log(coords)
-    let decimal = coords.degrees + coords.minutes/60 + coords.seconds/3600;
+    let decimal = parseFloat(coords.degrees) + parseFloat(coords.minutes)/60 + parseFloat(coords.seconds)/3600;
     if(coords.direction === 'W' || coords.direction === "S") {
       decimal = decimal * (-1);
     }
-    console.log(decimal);
     return decimal.toString();
   }
   convertDecimalToDMS(coords, type) {
